@@ -15,28 +15,44 @@ namespace MoneyTransfer
 
         internal bool IsSameBank()
         {
-            if(originBank == destinationBank) {
+            if (originBank == destinationBank)
+            {
                 return true;
-            } else {
+            }
+            else
+            {
                 return false;
             }
         }
 
         internal double? getFee(double amount)
         {
-            if(amount <= 0 || amount > 20000) {
+            if (amount <= 0 || amount > 20000)
+            {
                 return null;
-            } else {
-                if(IsSameBank()) {
+            }
+            else
+            {
+                if (IsSameBank())
+                {
                     return 0;
-                } else {
-                    if(amount > 5000 && amount <= 10000) {
+                }
+                else
+                {
+                    if (amount > 5000 && amount <= 10000)
+                    {
                         return 1;
-                    } else if(amount > 10000 && amount <= 15000) {
+                    }
+                    else if (amount > 10000 && amount <= 15000)
+                    {
                         return 2;
-                    } else  if(amount > 15000 && amount <= 20000) {
+                    }
+                    else if (amount > 15000 && amount <= 20000)
+                    {
                         return 3;
-                    } else { 
+                    }
+                    else
+                    {
                         return 0;
                     }
                 }
@@ -45,9 +61,12 @@ namespace MoneyTransfer
 
         internal bool IsTransfer(double amount)
         {
-            if(amount <= 0 || amount > 20000) {
+            if (amount <= 0 || amount > 20000)
+            {
                 return false;
-            } else {
+            }
+            else
+            {
                 return true;
             }
         }

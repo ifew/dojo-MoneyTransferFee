@@ -5,7 +5,7 @@ namespace MoneyTransfer
 {
     public class MoneyTransferTest
     {
-        
+
         [Fact]
         public void When_Same_Bank_Should_Be_Return_True()
         {
@@ -30,8 +30,8 @@ namespace MoneyTransfer
         }
 
         [Theory]
-        [InlineData(0,null)]
-        [InlineData(20001,null)]
+        [InlineData(0, null)]
+        [InlineData(20001, null)]
         public void When_Transfer_Same_Bank_Should_Be_Return_False(double inputAmount, double? expectedFee)
         {
             var originBank = "SCB";
@@ -44,19 +44,19 @@ namespace MoneyTransfer
             Assert.Equal(expectedFee, actualFee);
             Assert.False(actualStatus);
         }
-        
+
         [Theory]
-        [InlineData(4999,0)]
-        [InlineData(5000,0)]
-        [InlineData(5001,0)]
-        [InlineData(9999,0)]
-        [InlineData(10000,0)]
-        [InlineData(10001,0)]
-        [InlineData(14999,0)]
-        [InlineData(15000,0)]
-        [InlineData(15001,0)]
-        [InlineData(19999,0)]
-        [InlineData(20000,0)]
+        [InlineData(4999, 0)]
+        [InlineData(5000, 0)]
+        [InlineData(5001, 0)]
+        [InlineData(9999, 0)]
+        [InlineData(10000, 0)]
+        [InlineData(10001, 0)]
+        [InlineData(14999, 0)]
+        [InlineData(15000, 0)]
+        [InlineData(15001, 0)]
+        [InlineData(19999, 0)]
+        [InlineData(20000, 0)]
         public void When_Transfer_Same_Bank_Amount_Should_Be_Return_True_And_Fee_0THB(double inputAmount, double expectedFee)
         {
             var originBank = "SCB";
@@ -71,9 +71,9 @@ namespace MoneyTransfer
         }
 
         [Theory]
-        [InlineData(0,null)]
-        [InlineData(20001,null)]
-        [InlineData(-5,null)]
+        [InlineData(0, null)]
+        [InlineData(20001, null)]
+        [InlineData(-5, null)]
         public void When_Transfer_Difference_Bank_Should_Be_Return_False(double inputAmount, double? expectedFee)
         {
             var originBank = "SCB";
@@ -86,10 +86,10 @@ namespace MoneyTransfer
             Assert.Equal(expectedFee, actualFee);
             Assert.False(actualStatus);
         }
-        
+
         [Theory]
-        [InlineData(4999,0)]
-        [InlineData(5000,0)]
+        [InlineData(4999, 0)]
+        [InlineData(5000, 0)]
         public void When_Transfer_Diffence_Bank_Amount_Should_Be_Return_True_And_Fee_0THB(double inputAmount, double expectedFee)
         {
             var originBank = "SCB";
@@ -102,11 +102,11 @@ namespace MoneyTransfer
             Assert.Equal(expectedFee, actualFee);
             Assert.True(actualStatus);
         }
-        
+
         [Theory]
-        [InlineData(5001,1)]
-        [InlineData(9999,1)]
-        [InlineData(10000,1)]
+        [InlineData(5001, 1)]
+        [InlineData(9999, 1)]
+        [InlineData(10000, 1)]
         public void When_Transfer_Diffence_Bank_Amount_Should_Be_Return_True_And_Fee_1THB(double inputAmount, double expectedFee)
         {
             var originBank = "SCB";
@@ -119,11 +119,11 @@ namespace MoneyTransfer
             Assert.Equal(expectedFee, actualFee);
             Assert.True(actualStatus);
         }
-        
+
         [Theory]
-        [InlineData(10001,2)]
-        [InlineData(14999,2)]
-        [InlineData(15000,2)]
+        [InlineData(10001, 2)]
+        [InlineData(14999, 2)]
+        [InlineData(15000, 2)]
         public void When_Transfer_Diffence_Bank_Amount_Should_Be_Return_True_And_Fee_2THB(double inputAmount, double expectedFee)
         {
             var originBank = "SCB";
@@ -136,11 +136,11 @@ namespace MoneyTransfer
             Assert.Equal(expectedFee, actualFee);
             Assert.True(actualStatus);
         }
-        
+
         [Theory]
-        [InlineData(15001,3)]
-        [InlineData(19999,3)]
-        [InlineData(20000,3)]
+        [InlineData(15001, 3)]
+        [InlineData(19999, 3)]
+        [InlineData(20000, 3)]
         public void When_Transfer_Diffence_Bank_Amount_Should_Be_Return_True_And_Fee_3THB(double inputAmount, double expectedFee)
         {
             var originBank = "SCB";

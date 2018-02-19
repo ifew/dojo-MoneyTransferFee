@@ -47,5 +47,20 @@ namespace MoneyTransfer
         }
 
         
+        [Theory]
+        [InlineData(0,null)]
+        [InlineData(20001,null)]
+        public void When_Transfer_Difference_Bank_Should_Be_Return_False(double inputAmount, double? expectedFee)
+        {
+            var originBank = "SCB";
+            var destinationBank = "KBANK";
+
+            MoneyTransfer moneyTransfer = new MoneyTransfer(originBank, destinationBank);
+            var actualFee = moneyTransfer.getFee(inputAmount);
+            var actualStatus = moneyTransfer.IsTransfer(inputAmount);
+
+            Assert.Equal(expectedFee, actualFee);
+            Assert.False(actualStatus);
+        }
     }
 }

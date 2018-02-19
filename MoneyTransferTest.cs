@@ -46,7 +46,6 @@ namespace MoneyTransfer
             Assert.True(actualStatus);
         }
 
-        
         [Theory]
         [InlineData(0,null)]
         [InlineData(20001,null)]
@@ -61,6 +60,22 @@ namespace MoneyTransfer
 
             Assert.Equal(expectedFee, actualFee);
             Assert.False(actualStatus);
+        }
+        
+        [Theory]
+        [InlineData(4999,0)]
+        [InlineData(5000,0)]
+        public void When_Transfer_Diffence_Bank_Amount_Should_Be_Return_True_And_Fee_0THB(double inputAmount, double expectedFee)
+        {
+            var originBank = "SCB";
+            var destinationBank = "KBANK";
+
+            MoneyTransfer moneyTransfer = new MoneyTransfer(originBank, destinationBank);
+            var actualFee = moneyTransfer.getFee(inputAmount);
+            var actualStatus = moneyTransfer.IsTransfer(inputAmount);
+
+            Assert.Equal(expectedFee, actualFee);
+            Assert.True(actualStatus);
         }
     }
 }

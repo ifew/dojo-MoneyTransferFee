@@ -32,7 +32,11 @@ namespace MoneyTransfer
                 } else {
                     if(amount > 5000 && amount <= 10000) {
                         return 1;
-                    } else {
+                    } else if(amount > 10000 && amount <= 15000) {
+                        return 2;
+                    } else  if(amount > 15000 && amount <= 20000) {
+                        return 3;
+                    } else { 
                         return 0;
                     }
                 }

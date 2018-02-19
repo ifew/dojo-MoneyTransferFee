@@ -13,9 +13,9 @@ namespace MoneyTransfer
             this.destinationBank = destinationBank;
         }
 
-        internal double? Transfer(double amount)
+        internal double? getFee(double amount)
         {
-            if(amount == 0) {
+            if(amount <= 0 || amount > 20000) {
                 return null;
             } else {
                 return 0;
@@ -24,7 +24,7 @@ namespace MoneyTransfer
 
         internal bool IsTransfer(double amount)
         {
-            if(amount == 0) {
+            if(amount <= 0 || amount > 20000) {
                 return false;
             } else {
                 return true;

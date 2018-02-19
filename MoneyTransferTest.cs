@@ -10,41 +10,47 @@ namespace MoneyTransfer
         {
             var originBank = "SCB";
             var destinationBank = "SCB";
-            var amount = 0;
+            double inputAmount = 0;
+            double? expectedFee = null;
 
             MoneyTransfer moneyTransfer = new MoneyTransfer(originBank, destinationBank);
-            var actual = moneyTransfer.Transfer(amount);
+            var actualFee = moneyTransfer.Transfer(inputAmount);
+            var actualStatus = moneyTransfer.IsTransfer(inputAmount);
 
-            Assert.False(actual);
+            Assert.Equal(expectedFee, actualFee);
+            Assert.False(actualStatus);
         }
-
         
         [Fact]
         public void When_Transfer_Same_Bank_Amount_4999THB_Should_Be_Return_True()
         {
             var originBank = "SCB";
             var destinationBank = "SCB";
-            var amount = 4999;
+            double inputAmount = 4999;
+            double expectedFee = 0;
 
             MoneyTransfer moneyTransfer = new MoneyTransfer(originBank, destinationBank);
-            var actual = moneyTransfer.Transfer(amount);
+            var actualFee = moneyTransfer.Transfer(inputAmount);
+            var actualStatus = moneyTransfer.IsTransfer(inputAmount);
 
-            Assert.True(actual);
+            Assert.Equal(expectedFee, actualFee);
+            Assert.True(actualStatus);
         }
 
-        
-        
         [Fact]
         public void When_Transfer_Same_Bank_Amount_5000THB_Should_Be_Return_True()
         {
             var originBank = "SCB";
             var destinationBank = "SCB";
-            var amount = 5000;
+            double inputAmount = 5000;
+            double expectedFee = 0;
 
             MoneyTransfer moneyTransfer = new MoneyTransfer(originBank, destinationBank);
-            var actual = moneyTransfer.Transfer(amount);
+            var actualFee = moneyTransfer.Transfer(inputAmount);
+            var actualStatus = moneyTransfer.IsTransfer(inputAmount);
 
-            Assert.True(actual);
+            Assert.Equal(expectedFee, actualFee);
+            Assert.True(actualStatus);
         }
     }
 }

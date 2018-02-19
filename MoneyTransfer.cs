@@ -13,7 +13,16 @@ namespace MoneyTransfer
             this.destinationBank = destinationBank;
         }
 
-        internal bool Transfer(double amount)
+        internal double? Transfer(double amount)
+        {
+            if(amount == 0) {
+                return null;
+            } else {
+                return 0;
+            }
+        }
+
+        internal bool IsTransfer(double amount)
         {
             if(amount == 0) {
                 return false;

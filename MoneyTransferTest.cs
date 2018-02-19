@@ -73,6 +73,7 @@ namespace MoneyTransfer
         [Theory]
         [InlineData(0,null)]
         [InlineData(20001,null)]
+        [InlineData(-5,null)]
         public void When_Transfer_Difference_Bank_Should_Be_Return_False(double inputAmount, double? expectedFee)
         {
             var originBank = "SCB";

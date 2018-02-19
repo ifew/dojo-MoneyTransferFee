@@ -13,12 +13,29 @@ namespace MoneyTransfer
             this.destinationBank = destinationBank;
         }
 
+        internal bool IsSameBank()
+        {
+            if(originBank == destinationBank) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         internal double? getFee(double amount)
         {
             if(amount <= 0 || amount > 20000) {
                 return null;
             } else {
-                return 0;
+                if(IsSameBank()) {
+                    return 0;
+                } else {
+                    if(amount > 5000 && amount <= 10000) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                }
             }
         }
 

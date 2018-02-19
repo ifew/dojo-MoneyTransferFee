@@ -4,10 +4,22 @@ namespace MoneyTransfer
 {
     public class MoneyTransfer
     {
+        private string originBank;
+        private string destinationBank;
 
-        internal bool Transfer(string originBank, string destinationBank, int v)
+        public MoneyTransfer(string originBank, string destinationBank)
         {
-            return false;
+            this.originBank = originBank;
+            this.destinationBank = destinationBank;
+        }
+
+        internal bool Transfer(double amount)
+        {
+            if(amount == 0) {
+                return false;
+            } else {
+                return true;
+            }
         }
     }
 }
